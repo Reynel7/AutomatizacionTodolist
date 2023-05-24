@@ -19,7 +19,7 @@ namespace AutomarizacionTodolist.src.code.test
         {
             session.Session.Instance().GetBrowser().Navigate().GoToUrl("https://todoist.com/es");
             homePage.ButtonLogIn();
-            loginAccount.Login("bancofie@gmail.com", "Fie123456*");
+            loginAccount.Login("", "");
 
         }
 
