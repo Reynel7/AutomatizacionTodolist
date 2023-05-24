@@ -14,11 +14,17 @@ namespace AutomatizacionTodolist.src.code.page
         public Button menuProject = new Button(By.XPath("//button[@aria-label=\"Menú de opciones del proyecto\"]"));
         public Button editProject = new Button(By.XPath("//li[@class=\"menu_item icon_menu_item\"]//div[contains(text(),\"Editar proyecto\")]"));
         public Button deleteProject = new Button(By.XPath("//li[@class=\"menu_item icon_menu_item\"]//div[contains(text(),\"Eliminar proyecto\")]"));
+        public Button confirmDelete = new Button(By.XPath("//button[@data-autofocus=\"true\"]"));
 
-        public void SelectProyect(string projectName)
+        public void SelectProyect(String projectName)
         {
             Button selectProject = new Button(By.XPath("//li[@class=\"iydsj+G\"]//span[contains(text(),'"+projectName+"')]"));
             selectProject.Click();
+        }
+        public Boolean SelectProyectDisplayed(String projectName)
+        {
+            Button selectProject = new Button(By.XPath("//li[@class=\"iydsj+G\"]//span[contains(text(),'" + projectName + "')]"));
+            return selectProject.IsControlDisplayed();
         }
         public void SelectMenuProject()
         { 
@@ -31,6 +37,7 @@ namespace AutomatizacionTodolist.src.code.page
         public void SelectDeleteProject()
         {
             deleteProject.Click();
+            confirmDelete.Click();
         }
     }
 }

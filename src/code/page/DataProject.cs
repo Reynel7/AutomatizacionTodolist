@@ -12,14 +12,16 @@ namespace AutomatizacionTodolist.src.code.page
     {
         public TextBox newNameProject = new TextBox(By.Id("edit_project_modal_field_name"));
         public Button color = new Button(By.XPath("//button[@class =\"color_dropdown_toggle form_field_control\"]"));
-        public Button saveData = new Button(By.XPath("//button[@type =\"submit\" and span[contains(text(),\"Añadir\")]]"));
-        public void ChangeColor(string newColor)
+        public Button saveDataNew = new Button(By.XPath("//button[@type =\"submit\"]"));
+        public Button saveDataEdit = new Button(By.XPath("//button[@type =\"submit\" and span[contains(text(),\"Guardar\")]]"));
+
+        public void ChangeColor(String newColor)
         {
             color.Click();
             Button changeColor = new Button(By.XPath("//span[@class = \"color_dropdown_select__name\" and text()='"+newColor+"']"));
             changeColor.Click();
         }
-        public void ChangeView(string newView)
+        public void ChangeView(String newView)
         {
             Button changeView = new Button(By.XPath("//div[@class = \"edit_project_modal__view_radio_option\" and text()='"+newView+"'] "));
             changeView.Click();
@@ -29,9 +31,14 @@ namespace AutomatizacionTodolist.src.code.page
         {
             newNameProject.SetText(newName);
         }
-        public void ButtonSave()
+        public void ButtonSaveNew()
         {
-            saveData.Click();
+            saveDataNew.Click();
+        }
+
+        public void ButtonSaveEdit()
+        {
+            saveDataEdit.Click();
         }
 
     }

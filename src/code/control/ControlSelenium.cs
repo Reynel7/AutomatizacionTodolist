@@ -14,7 +14,6 @@ namespace AutomarizacionTodolist.src.code.control
     {
         protected By locator;
         protected IWebElement control;
-        protected IWebElement iframeName;
 
 
         public ControlSelenium(By locator) 
@@ -25,6 +24,7 @@ namespace AutomarizacionTodolist.src.code.control
         protected void FindControl() 
         {
             control = Session.Instance().GetBrowser().FindElement(locator);
+            Thread.Sleep(1000);
         }
 
         public void Click() 
